@@ -510,15 +510,6 @@ ul {
   transform: translateY(-2px);
 }
 
-.btn-hero-outline:hover::before,
-.btn-chamfer-outline:hover::before {
-  background-color: var(--white);
-}
-
-.btn-hero-outline:hover::after,
-.btn-chamfer-outline:hover::after {
-  background-color: rgba(255, 255, 255, 0.08);
-}
 
 /* ==========================================================================
    4. HERO SECTION
