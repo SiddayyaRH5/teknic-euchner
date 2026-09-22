@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Teknic Euchner | Industrial Control Solutions</title>
+    <meta name="description"
+        content="Teknic Euchner provides precision industrial sensing, switching and control solutions." />
+
+    <!-- Preconnect & Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Roboto+Mono:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+    <!-- 1. NAVBAR -->
+    <header class="navbar-wrapper">
+        <nav class="navbar" id="navbar">
+            <a href="#home" class="logo-box">
+                <span class="logo-teknic">TEKNIC</span>
+                <span class="logo-euchner">EUCHNER</span>
+            </a>
+
+            <div class="nav-links" id="navLinks">
+                <a href="#home" class="nav-link">HOME</a>
+                <a href="#about" class="nav-link">
+                    <span>ABOUT</span>
+                    <img src="assets/icons/svg/chevron-right.svg" alt="" class="nav-chevron" width="6" height="10" />
+                </a>
+                <a href="#products" class="nav-link">PRODUCTS</a>
+                <a href="#dealers" class="nav-link">DEALERS</a>
+                <a href="#events" class="nav-link">EVENTS</a>
+                <a href="#contact" class="nav-link">CONTACT</a>
+                <a href="#contact" class="nav-btn-touch">GET IN TOUCH</a>
+            </div>
+
+            <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle navigation" aria-expanded="false">
+                <span class="bar bar-1"></span>
+                <span class="bar bar-2"></span>
+                <span class="bar bar-3"></span>
+            </button>
+        </nav>
+    </header>
+
+    <main>
+        <!-- 2. HERO SECTION -->
+        <section class="hero-section" id="home">
+            <video class="hero-bg-video" autoplay muted loop playsinline preload="auto">
+                <source
+                    src="assets/videos/Inside Teknic Euchner Precision, Innovation & People Driving Automation_1080p.mp4"
+                    type="video/mp4" />
+            </video>
+            <div class="hero-bg-overlay" aria-hidden="true"></div>
+
+            <div class="content-wrapper hero-frame-container">
+                <div class="hero-main-box">
+                    <h1 class="hero-heading">
+                        Precision That Keeps<br>Industry Moving.
+                    </h1>
+                    <p class="hero-subheading">
+                        Engineered sensing, switching and control solutions for machines that demand reliability.
+                    </p>
+                    <div class="hero-buttons-row">
+                        <a href="#contact" class="btn-hero-outline">TALK TO AN EXPERT</a>
+                        <a href="#products" class="btn-hero-solid">EXPLORE OUR PRODUCTS</a>
+                    </div>
+                </div>
+
+                <div class="hero-side-box">
+                    <p class="hero-side-text">
+                        For over three decades, Teknic Euchner has been developing and manufacturing industrial control
+                        gear designed for precision, durability and dependable performance.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. ENGINEERING / EXPERIENCE -->
+        <section class="section-light section-experience" id="about">
+            <div class="content-wrapper">
+                <div class="experience-split-grid">
+                    <div class="experience-col-left">
+                        <h2 class="experience-heading">
+                            Engineering You Can Rely On.<br>
+                            Experience You Can Trust.
+                        </h2>
+                        <div class="experience-btn-box">
+                            <a href="#about" class="btn-experience-cta">DISCOVER TEKNIC EUCHNER</a>
+                        </div>
+                    </div>
+
+                    <div class="experience-col-right">
+                        <p class="experience-paragraph">
+                            Since 1989, <strong>Teknic Euchner</strong> has been building its expertise around one
+                            simple principle: <strong>industrial components should perform reliably, every time they are
+                                called upon.</strong>
+                        </p>
+                        <p class="experience-paragraph">
+                            With the engineering know-how of Euchner Germany and decades of manufacturing experience in
+                            India, we develop control gear and sensing solutions for demanding industrial applications.
+                        </p>
+                        <p class="experience-paragraph">
+                            From machine positioning and object detection to switching and safety-related applications,
+                            our products are built to deliver consistent performance where it matters most.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. STATISTICS SECTION -->
+        <section class="section-dark section-stats" id="stats">
+            <div class="content-wrapper">
+                <div class="stats-header-split">
+                    <div class="stats-title-col">
+                        <h2 class="stats-main-heading">
+                            Decades of Engineering.<br>Built for Industry.
+                        </h2>
+                    </div>
+                    <div class="stats-desc-col">
+                        <p class="stats-sub-copy">
+                            Numbers and claims should be updated with the company's verified current figures before
+                            publishing.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Populated dynamically via script.js -->
+                <div class="stats-cards-grid mt-10" id="statsGrid"></div>
+            </div>
+        </section>
+
+        <!-- 5. PRODUCTS SECTION -->
+        <section class="section-light section-products" id="products">
+            <div class="content-wrapper">
+                <div class="prod-header-split">
+                    <div class="prod-title-col">
+                        <h2 class="prod-main-heading">
+                            The Right Control Gear<br>for Every Application.
+                        </h2>
+                    </div>
+                    <div class="prod-desc-col">
+                        <p class="prod-sub-copy">
+                            Industrial machines depend on components that can sense movement, detect position, control
+                            processes and respond when it matters.<br>
+                            Teknic Euchner offers a focused range of industrial products engineered for reliable
+                            operation across demanding applications.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Populated dynamically via script.js -->
+                <div class="products-grid" id="productsGrid"></div>
+            </div>
+        </section>
+
+        <!-- 6. WHY TEKNIC EUCHNER SECTION -->
+        <section class="section-dark section-why" id="dealers">
+            <div class="content-wrapper">
+                <h2 class="why-main-heading">Why Teknic Euchner</h2>
+
+                <!-- Populated dynamically via script.js -->
+                <div class="why-cards-grid" id="whyCardsGrid"></div>
+            </div>
+        </section>
+
+        <!-- 7. INDUSTRIES / APPLICATIONS -->
+        <section class="section-light section-industries" id="events">
+            <div class="content-wrapper">
+                <div class="industries-header-split">
+                    <div class="industries-title-box">
+                        <h2 class="industries-heading">
+                            Designed for Machines.<br>
+                            Trusted Across Industries.
+                        </h2>
+                    </div>
+                    <div class="industries-sub-box">
+                        <p class="industries-subtext">
+                            Our products support the machines and systems that keep modern manufacturing moving.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Populated dynamically via script.js -->
+                <div class="industries-table" id="industriesTable"></div>
+            </div>
+        </section>
+
+        <!-- 8. GERMAN KNOW-HOW / MFG SHOWCASE -->
+        <section class="section-dark section-mfg-showcase" id="manufacturing">
+            <div class="content-wrapper">
+                <div class="mfg-header-split">
+                    <div class="mfg-title-col">
+                        <h2 class="mfg-heading">
+                            German Know-How.<br>
+                            Indian Manufacturing.<br>
+                            Industrial Confidence.
+                        </h2>
+                    </div>
+                    <div class="mfg-desc-col">
+                        <p class="mfg-body-copy">
+                            Teknic Euchner brings together the engineering heritage of Euchner Germany with
+                            manufacturing and market expertise in India.
+                        </p>
+                        <p class="mfg-body-copy mt-3">
+                            Established in 1989, the company has grown with the changing needs of Indian industry while
+                            remaining focused on quality, precision and dependable control solutions.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="mfg-carousel-frame mt-8">
+                    <div class="mfg-slides-stack" id="mfgSlider">
+                        <img src="assets/images/mfg-1.png" class="mfg-slide active"
+                            alt="Precision switch terminal wiring" loading="lazy" />
+                        <img src="assets/images/mfg-2.png" class="mfg-slide" alt="Component electronic probe testing"
+                            loading="lazy" />
+                        <img src="assets/images/mfg-3.png" class="mfg-slide" alt="Industrial cleanroom assembly line"
+                            loading="lazy" />
+                        <img src="assets/images/mfg-4.png" class="mfg-slide" alt="Quality and safety gear inspection"
+                            loading="lazy" />
+                        <img src="assets/images/mfg-5.png" class="mfg-slide" alt="Bench calibration for indicator light"
+                            loading="lazy" />
+                        <img src="assets/images/mfg-6.png" class="mfg-slide" alt="Industrial control panel testing"
+                            loading="lazy" />
+                    </div>
+                    <div class="mfg-vignette-overlay" aria-hidden="true"></div>
+                </div>
+
+                <div class="text-center mt-8">
+                    <a href="#about" class="btn-mfg-journey">LEARN ABOUT OUR JOURNEY</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- 9. QUALITY SECTION -->
+        <section class="section-light section-quality" id="quality">
+            <div class="content-wrapper quality-split-layout">
+                <div class="quality-image-wrapper">
+                    <div class="quality-image-frame">
+                        <img src="assets/images/quality.png" alt="Teknic Precision Switchgear Component"
+                            class="quality-real-img" loading="lazy" />
+                        <div class="quality-image-glare" aria-hidden="true"></div>
+                    </div>
+                </div>
+
+                <div class="quality-content-col">
+                    <h2 class="quality-heading">
+                        Quality Isn’t an Inspection.<br>It’s a Commitment.
+                    </h2>
+                    <div class="quality-text-group">
+                        <p class="quality-p">For industrial components, quality is about more than meeting a
+                            specification.</p>
+                        <p class="quality-p">It's about consistent performance.</p>
+                        <p class="quality-p">It's about dependable operation.</p>
+                        <p class="quality-p">It's about building components that customers can specify with confidence.
+                        </p>
+                        <p class="quality-p quality-p-spaced">
+                            At Teknic Euchner, quality is built into our approach to product development, manufacturing
+                            and customer service.
+                        </p>
+                    </div>
+                    <div>
+                        <a href="#contact" class="btn-quality-red">VIEW OUR QUALITY POLICY</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 10. FINAL FOCUSED CTA -->
+        <section class="section-dark section-cta-focused text-center" id="contact">
+            <div class="cta-ambient-glow" aria-hidden="true"></div>
+            <div class="cta-grid-pattern" aria-hidden="true"></div>
+
+            <div class="content-wrapper cta-inner-wrapper">
+                <h2 class="cta-title">
+                    Let’s Find the Right Solution<br>for Your Application.
+                </h2>
+                <p class="cta-body-text">
+                    Find an authorised dealer near you and get connected with the right product. Whether you're
+                    designing a new machine, upgrading an existing system, or looking for a reliable replacement, our
+                    team can help you identify the right control gear for your requirements.
+                </p>
+                <div class="cta-actions-row">
+                    <a href="#contact" class="btn-chamfer-outline">TALK TO AN EXPERT</a>
+                    <a href="#products" class="btn-chamfer-solid">EXPLORE OUR PRODUCTS</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- 11. PRE-FOOTER CTA -->
+        <section class="section-footer-cta">
+            <div class="content-wrapper footer-cta-container">
+                <div class="cta-left-box">
+                    <h2 class="footer-cta-heading">Looking for Teknic Euchner<br>Products?</h2>
+                </div>
+                <div class="cta-right-box">
+                    <p class="cta-sub-copy">
+                        Find an authorised dealer near you and get connected with the right product for your
+                        application.
+                    </p>
+                    <div class="mt-6">
+                        <a href="mailto:marketing@teknic-euchner.co.in" class="angular-btn btn-find-dealer">FIND A
+                            DEALER</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- 12. FOOTER -->
+    <footer class="site-footer">
+        <div class="content-wrapper footer-divided-grid">
+            <div class="footer-cell cell-brand">
+                <div class="footer-tagline-mono">SENSE. SWITCH. CONTROL. PROTECT.</div>
+                <div class="footer-logo-title">
+                    <span class="logo-red-bold">Teknic</span>
+                    <span class="logo-white-bold">Euchner</span>
+                </div>
+                <p class="footer-brand-summary">
+                    Industrial control gear engineered for reliable performance.
+                </p>
+            </div>
+
+            <div class="footer-cell cell-links">
+                <h4 class="footer-col-header">QUICK LINKS</h4>
+                <ul class="footer-nav-list">
+                    <li><a href="#home">HOME</a></li>
+                    <li><a href="#about">ABOUT</a></li>
+                    <li><a href="#products">PRODUCTS</a></li>
+                    <li><a href="#dealers">DEALERS</a></li>
+                    <li><a href="#events">EVENTS</a></li>
+                    <li><a href="#contact">CONTACT</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-cell cell-contact">
+                <h4 class="footer-col-header">CONTACT</h4>
+                <div class="footer-info-block">
+                    <p>No.64, 5th Cross, Electronics</p>
+                    <p>City Bengaluru 560 100</p>
+                    <p>Karnataka, India.</p>
+                    <p class="mt-4 phone-num">+91 80 28522717</p>
+                    <p class="mt-4"><a href="mailto:marketing@teknic-euchner.co.in">marketing@teknic-euchner.co.in</a>
+                    </p>
+                    <p class="mt-2"><a href="https://www.teknic-euchner.co.in" target="_blank"
+                            rel="noopener">www.teknic-euchner.co.in</a></p>
+                </div>
+            </div>
+
+            <div class="footer-cell cell-social">
+                <h4 class="footer-col-header">FOLLOW US</h4>
+                <div class="social-icon-group">
+                    <a href="#" class="social-pill-btn" aria-label="Facebook">
+                        <img src="assets/icons/facebook-icon.svg" alt="" width="15" height="15" />
+                    </a>
+                    <a href="#" class="social-pill-btn" aria-label="LinkedIn">
+                        <img src="assets/icons/linkedin-icon.svg" alt="" width="15" height="15" />
+                    </a>
+                    <a href="#" class="social-pill-btn" aria-label="Instagram">
+                        <img src="assets/icons/instagram-icon.svg" alt="" width="15" height="15" />
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-wrapper footer-bottom-meta">
+            <div>© 2026 TEKNIC EUCHNER</div>
+            <div class="text-center">DESIGNED BY COJECTIVE</div>
+            <div class="text-right">TERMS &amp; CONDITIONS &nbsp;|&nbsp; PRIVACY POLICY</div>
+        </div>
+    </footer>
+
+    <!-- Load data configuration first, then main execution logic -->
+    <script src="data.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
