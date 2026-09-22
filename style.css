@@ -1,5 +1,5 @@
 /* ==========================================================================
-   1. RESET & UNIFIED TYPOGRAPHY TOKENS
+   1. DESIGN TOKENS & RESET
    ========================================================================== */
 :root {
   --black: #000000;
@@ -13,11 +13,11 @@
   --gray-subtext: #9aa0a6;
   --border: #30353a;
   --border-light: #e4e7eb;
+  --border-solid: #1a1e22;
   --text-dark: #0d1013;
   --text-dark-body: #4a5058;
 
-  --font-main:
-    "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-main: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   --font-mono: "Roboto Mono", "Courier New", monospace;
 
   --nav-height: 52px;
@@ -57,6 +57,9 @@ ul {
   list-style: none;
 }
 
+/* ==========================================================================
+   2. REUSABLE LAYOUT & UTILITIES
+   ========================================================================== */
 .content-wrapper {
   width: var(--content-max-w);
   max-width: 95%;
@@ -64,34 +67,15 @@ ul {
   margin-right: auto;
 }
 
-/* Utilities */
-.text-center {
-  text-align: center;
-}
-.justify-center {
-  justify-content: center;
-}
-.mt-2 {
-  margin-top: 0.5rem;
-}
-.mt-3 {
-  margin-top: 0.75rem;
-}
-.mt-4 {
-  margin-top: 1rem;
-}
-.mt-6 {
-  margin-top: 1.5rem;
-}
-.mt-8 {
-  margin-top: 2rem;
-}
-.mt-10 {
-  margin-top: 2.5rem;
-}
-.mb-6 {
-  margin-bottom: 1.5rem;
-}
+.text-center     { text-align: center; }
+.justify-center  { justify-content: center; }
+.mt-2            { margin-top: 0.5rem; }
+.mt-3            { margin-top: 0.75rem; }
+.mt-4            { margin-top: 1rem; }
+.mt-6            { margin-top: 1.5rem; }
+.mt-8            { margin-top: 2rem; }
+.mt-10           { margin-top: 2.5rem; }
+.mb-6            { margin-bottom: 1.5rem; }
 
 .section-light {
   background-color: var(--white);
@@ -103,9 +87,7 @@ ul {
   padding: 100px 0 110px 0;
 }
 
-/* ==========================================================================
-   SCROLL REVEAL ANIMATIONS (OBSERVER TARGETS)
-   ========================================================================== */
+/* Scroll Reveal Observer Base */
 .product-card,
 .why-card-item,
 .stat-card,
@@ -125,8 +107,68 @@ ul {
   transform: translateY(0);
 }
 
+/* Section Header Shared Flex Layout */
+.stats-header-split,
+.prod-header-split,
+.industries-header-split,
+.mfg-header-split {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 40px;
+}
+
+.stats-title-col,
+.prod-title-col,
+.industries-title-box,
+.mfg-title-col {
+  flex: 1.2;
+}
+
+.stats-desc-col,
+.prod-desc-col,
+.industries-sub-box,
+.mfg-desc-col {
+  flex: 1;
+  max-width: 500px;
+}
+
+.stats-main-heading,
+.prod-main-heading,
+.industries-heading,
+.mfg-heading {
+  font-size: 42px;
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.025em;
+}
+
+.stats-main-heading,
+.mfg-heading {
+  color: var(--white);
+}
+
+.prod-main-heading,
+.industries-heading {
+  color: #111418;
+}
+
+.stats-sub-copy,
+.mfg-body-copy {
+  font-size: 15px;
+  line-height: 1.6;
+  color: #9aa2ab;
+}
+
+.prod-sub-copy,
+.industries-subtext {
+  font-size: 14.5px;
+  line-height: 1.6;
+  color: #555b64;
+}
+
 /* ==========================================================================
-   HORIZONTAL RED ACCENTS (RESTORED VIA PSEUDO-ELEMENTS)
+   3. HORIZONTAL RED ACCENT BARS
    ========================================================================== */
 .hero-side-box::before,
 .experience-col-right::before,
@@ -134,17 +176,14 @@ ul {
 .prod-desc-col::before,
 .industries-sub-box::before,
 .mfg-desc-col::before,
-.cta-right-box::before,
-.footer-cell:not(.cell-brand)::before {
+.cta-right-box::before {
   content: "";
   display: block;
   width: 90px;
   height: 2.5px;
   background-color: var(--red);
   margin-bottom: 22px;
-  transition:
-    width 0.35s ease,
-    box-shadow 0.35s ease;
+  transition: width 0.35s ease, box-shadow 0.35s ease;
 }
 
 .hero-side-box:hover::before,
@@ -165,9 +204,7 @@ ul {
   height: 2px;
   background-color: var(--red);
   margin: 24px 0 20px 0;
-  transition:
-    width 0.3s ease,
-    box-shadow 0.3s ease;
+  transition: width 0.3s ease, box-shadow 0.3s ease;
 }
 
 .quality-content-col:hover .quality-heading::after {
@@ -182,9 +219,7 @@ ul {
   height: 2px;
   background-color: var(--red);
   margin: 28px auto 24px auto;
-  transition:
-    width 0.35s ease,
-    box-shadow 0.35s ease;
+  transition: width 0.35s ease, box-shadow 0.35s ease;
 }
 
 .section-cta-focused:hover .cta-title::after {
@@ -192,18 +227,23 @@ ul {
   box-shadow: 0 0 12px rgba(230, 0, 0, 0.8);
 }
 
-.footer-cell:not(.cell-brand)::before {
+/* Specific Red Line for Footer Columns */
+.red-accent-bar {
   width: 48px;
   height: 2px;
+  background-color: var(--red);
   margin-bottom: 22px;
+  display: block;
+  transition: width 0.3s ease, box-shadow 0.3s ease;
 }
 
-.footer-cell:hover::before {
+.footer-cell:hover .red-accent-bar {
   width: 64px;
+  box-shadow: 0 0 8px rgba(230, 0, 0, 0.6);
 }
 
 /* ==========================================================================
-   2. NAVBAR
+   4. NAVBAR COMPONENT
    ========================================================================== */
 .navbar-wrapper {
   position: sticky;
@@ -223,8 +263,8 @@ ul {
 
 .navbar {
   width: 100%;
-  max-width: var(--content-max-w);
-  height: var(--nav-height);
+  max-width: var(--content-max-w, 1280px);
+  height: var(--nav-height, 52px);
   background-color: #12161b;
   display: flex;
   align-items: center;
@@ -260,7 +300,7 @@ ul {
 .logo-euchner {
   font-size: 17px;
   font-weight: 800;
-  color: var(--white);
+  color: #ffffff;
   letter-spacing: 1.2px;
 }
 
@@ -273,43 +313,60 @@ ul {
 
 .nav-link {
   height: 100%;
-  padding: 0 22px;
+  width: 120px;
+  padding: 0;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 8px;
+  gap: 7px;
   font-family: var(--font-mono);
   font-size: 11.5px;
   font-weight: 600;
   letter-spacing: 0.1em;
   color: #e4e7eb;
+  background-color: transparent;
   border-left: 1px solid rgba(255, 255, 255, 0.1);
-  transition:
-    background-color 0.22s cubic-bezier(0.16, 1, 0.3, 1),
-    color 0.22s ease;
+  text-align: center;
+  white-space: nowrap;
   user-select: none;
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease;
 }
 
 .nav-chevron {
-  transition:
-    stroke 0.2s ease,
-    transform 0.2s ease;
+  display: inline-block;
+  opacity: 0.75;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.2s ease;
+  transform-origin: center center;
 }
 
-.nav-link:hover,
+/* Scrollspy active styling */
 .nav-link.active {
   background-color: var(--red);
-  color: var(--white);
+  color: #ffffff;
 }
 
-.nav-link:hover .nav-chevron,
-.nav-link.active .nav-chevron {
-  transform: translateX(2.5px);
+/* Reset all links on navbar hover so only hovered item shines */
+.nav-links:hover .nav-link {
+  background-color: transparent !important;
+  color: #a0a6ad !important;
 }
 
+.nav-links .nav-link:hover {
+  background-color: var(--red) !important;
+  color: #ffffff !important;
+}
+
+.nav-link:hover .nav-chevron {
+  transform: rotate(90deg);
+  opacity: 1;
+}
+
+/* CTA Angled Right Button */
 .nav-btn-touch {
   height: 100%;
-  padding: 0 24px;
+  width: 155px;
+  padding: 0;
   background-color: var(--red);
   color: var(--white);
   display: inline-flex;
@@ -320,6 +377,7 @@ ul {
   font-weight: 700;
   letter-spacing: 0.1em;
   border-left: 1px solid rgba(255, 255, 255, 0.12);
+  white-space: nowrap;
   clip-path: polygon(
     0 0,
     100% 0,
@@ -334,6 +392,7 @@ ul {
   background-color: var(--red-hover);
 }
 
+/* Mobile Hamburger Button */
 .mobile-menu-btn {
   display: none;
   background: transparent;
@@ -352,11 +411,9 @@ ul {
 .mobile-menu-btn .bar {
   width: 22px;
   height: 2px;
-  background-color: var(--white);
+  background-color: #ffffff;
   border-radius: 1px;
-  transition:
-    transform 0.3s ease,
-    opacity 0.2s ease;
+  transition: transform 0.3s ease, opacity 0.2s ease;
 }
 
 .mobile-menu-btn.active .bar-1 {
@@ -371,7 +428,7 @@ ul {
 }
 
 /* ==========================================================================
-   3. BUTTON SYSTEM
+   5. BUTTON SYSTEM & GLARE TRANSITION
    ========================================================================== */
 .angular-btn,
 .btn-hero-solid,
@@ -380,7 +437,8 @@ ul {
 .btn-mfg-journey,
 .btn-quality-red,
 .btn-find-dealer,
-.btn-chamfer-solid {
+.btn-chamfer-solid,
+.btn-prod-chamfer {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -403,6 +461,8 @@ ul {
     background-color 0.25s ease,
     transform 0.2s ease,
     box-shadow 0.25s ease;
+  position: relative;
+  overflow: hidden;
 }
 
 .angular-btn:hover,
@@ -412,14 +472,15 @@ ul {
 .btn-mfg-journey:hover,
 .btn-quality-red:hover,
 .btn-find-dealer:hover,
-.btn-chamfer-solid:hover {
+.btn-chamfer-solid:hover,
+.btn-prod-chamfer:hover {
   background-color: var(--red-hover);
   transform: translateY(-2px);
   box-shadow: 0 6px 24px rgba(230, 0, 0, 0.55);
 }
 
 .btn-hero-solid {
-  height: 48px;
+  height: 56px;
   padding: 0 26px;
   font-size: 12px;
 }
@@ -449,74 +510,126 @@ ul {
   font-size: 13px;
 }
 
-/* OUTLINE BUTTON FIX WITH TRUE CHAMFER BORDER */
+.btn-prod-chamfer {
+  width: 280px;
+  height: 48px;
+  padding: 0 20px;
+  margin-top: auto;
+  font-size: 0.75rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+/* Chamfered Outline Button (Talk to an Expert) */
 .btn-hero-outline,
 .btn-chamfer-outline {
   position: relative;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  height: 48px;
+  height: 56px;
   padding: 0 28px;
   font-family: var(--font-mono);
   font-size: 12px;
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--white) !important;
-  background: transparent;
-  z-index: 1;
+  color: #ffffff !important;
   cursor: pointer;
-  border: none;
+  z-index: 1;
+  overflow: hidden;
+  background-color: transparent;
+  border: 1.5px solid transparent;
+  border-image-source: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40' fill='none'%3E%3Cpath d='M0.5 0.5 H39.5 V27.5 L27.5 39.5 H0.5 Z' stroke='rgba(255,255,255,0.75)' stroke-width='1.5'/%3E%3C/svg%3E");
+  border-image-slice: 14;
+  border-image-width: 14px;
+  border-image-repeat: stretch;
   clip-path: polygon(
     0 0,
     100% 0,
-    100% calc(100% - 10px),
-    calc(100% - 10px) 100%,
+    100% calc(100% - 13px),
+    calc(100% - 13px) 100%,
     0 100%
   );
-  transition: transform 0.2s ease;
-}
-
-.btn-hero-outline::before,
-.btn-chamfer-outline::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background-color: rgba(255, 255, 255, 0.45);
-  z-index: -2;
-  transition: background-color 0.2s ease;
-}
-
-.btn-hero-outline::after,
-.btn-chamfer-outline::after {
-  content: "";
-  position: absolute;
-  inset: 1.5px;
-  background-color: #0d1013;
-  clip-path: polygon(
-    0 0,
-    100% 0,
-    100% calc(100% - 9px),
-    calc(100% - 9px) 100%,
-    0 100%
-  );
-  z-index: -1;
-  transition: background-color 0.2s ease;
+  transition:
+    background-color 0.25s ease,
+    border-image-source 0.25s ease,
+    transform 0.2s ease;
 }
 
 .btn-hero-outline:hover,
 .btn-chamfer-outline:hover {
+  background-color: #242a32;
   transform: translateY(-2px);
+  border-image-source: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40' fill='none'%3E%3Cpath d='M0.5 0.5 H39.5 V27.5 L27.5 39.5 H0.5 Z' stroke='%23ffffff' stroke-width='1.5'/%3E%3C/svg%3E");
 }
 
+/* Sweeping Reflective Glare Implementation Across All Buttons */
+.btn-hero-solid::before,
+.btn-hero-outline::before,
+.btn-experience-cta::before,
+.btn-prod-chamfer::before,
+.btn-mfg-journey::before,
+.btn-quality-red::before,
+.btn-find-dealer::before,
+.btn-chamfer-solid::before,
+.btn-chamfer-outline::before,
+.nav-btn-touch::before,
+.angular-btn::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    60deg,
+    transparent 35%,
+    rgba(255, 255, 255, 0.45) 50%,
+    transparent 65%
+  );
+  transform: rotate(25deg) translateY(-120%);
+  transition: transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+  pointer-events: none;
+  z-index: 2;
+}
+
+.btn-hero-solid:hover::before,
+.btn-hero-outline:hover::before,
+.btn-experience-cta:hover::before,
+.btn-prod-chamfer:hover::before,
+.btn-mfg-journey:hover::before,
+.btn-quality-red:hover::before,
+.btn-find-dealer:hover::before,
+.btn-chamfer-solid:hover::before,
+.btn-chamfer-outline:hover::before,
+.nav-btn-touch:hover::before,
+.angular-btn:hover::before {
+  transform: rotate(25deg) translateY(120%);
+}
+
+.btn-hero-solid > *,
+.btn-hero-outline > *,
+.btn-experience-cta > *,
+.btn-prod-chamfer > *,
+.btn-mfg-journey > *,
+.btn-quality-red > *,
+.btn-find-dealer > *,
+.btn-chamfer-solid > *,
+.btn-chamfer-outline > *,
+.nav-btn-touch > *,
+.angular-btn > * {
+  position: relative;
+  z-index: 3;
+}
 
 /* ==========================================================================
-   4. HERO SECTION
+   6. HERO SECTION
    ========================================================================== */
 .hero-section {
   position: relative;
-  min-height: 88vh;
+  min-height: 95vh;
   margin-top: -66px;
   padding-top: 150px;
   padding-bottom: 90px;
@@ -538,6 +651,7 @@ ul {
   transform: translate(-50%, -50%);
   z-index: 0;
   filter: brightness(0.9) contrast(1.05);
+  pointer-events: none;
 }
 
 .hero-bg-overlay {
@@ -606,36 +720,24 @@ ul {
 }
 
 .hero-side-text {
-  font-size: 13px;
+  font-size: 15px;
   line-height: 1.6;
   color: #c0c6cf;
   text-shadow: 0 1px 6px rgba(0, 0, 0, 0.5);
 }
 
 @keyframes heroSlideUp {
-  from {
-    opacity: 0;
-    transform: translateY(24px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 
 @keyframes heroFadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(16px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 
 /* ==========================================================================
-   5. ENGINEERING / EXPERIENCE
+   7. ENGINEERING & EXPERIENCE SECTION
    ========================================================================== */
 .section-experience {
   overflow: hidden;
@@ -677,67 +779,8 @@ ul {
 }
 
 /* ==========================================================================
-   6. STATISTICS SECTION
+   8. STATISTICS SECTION
    ========================================================================== */
-.stats-header-split,
-.prod-header-split,
-.industries-header-split,
-.mfg-header-split {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  gap: 40px;
-}
-
-.stats-title-col,
-.prod-title-col,
-.industries-title-box,
-.mfg-title-col {
-  flex: 1.2;
-}
-
-.stats-desc-col,
-.prod-desc-col,
-.industries-sub-box,
-.mfg-desc-col {
-  flex: 1;
-  max-width: 500px;
-}
-
-.stats-main-heading,
-.prod-main-heading,
-.industries-heading,
-.mfg-heading {
-  font-size: 42px;
-  font-weight: 700;
-  line-height: 1.15;
-  letter-spacing: -0.025em;
-}
-
-.stats-main-heading,
-.mfg-heading {
-  color: var(--white);
-}
-
-.prod-main-heading,
-.industries-heading {
-  color: #111418;
-}
-
-.stats-sub-copy,
-.mfg-body-copy {
-  font-size: 14px;
-  line-height: 1.6;
-  color: #9aa2ab;
-}
-
-.prod-sub-copy,
-.industries-subtext {
-  font-size: 14.5px;
-  line-height: 1.6;
-  color: #555b64;
-}
-
 .stats-cards-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -746,7 +789,7 @@ ul {
 
 .stat-card {
   background-color: #12161a;
-  border-radius: 12px;
+  border-radius: 2px;
   border: 1px solid rgba(255, 255, 255, 0.08);
   padding: 56px 24px 48px 24px;
   display: flex;
@@ -776,9 +819,14 @@ ul {
   display: flex;
   align-items: center;
   justify-content: center;
-  transition:
-    transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1),
-    filter 0.3s ease;
+  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), filter 0.3s ease;
+}
+
+.stat-icon-wrap img {
+  width: 60px;
+  height: 60px;
+  display: block;
+  object-fit: contain;
 }
 
 .stat-card:hover .stat-icon-wrap {
@@ -799,7 +847,7 @@ ul {
 }
 
 .stat-desc {
-  font-size: 13.5px;
+  font-size: 16px;
   line-height: 1.55;
   color: #8c939e;
   transition: color 0.25s ease;
@@ -809,15 +857,8 @@ ul {
   color: #aeb6c2;
 }
 
-.stat-icon-wrap img {
-  width: 60px;
-  height: 60px;
-  display: block;
-  object-fit: contain;
-}
-
 /* ==========================================================================
-   7. PRODUCTS SECTION
+   9. PRODUCTS SECTION
    ========================================================================== */
 .products-grid {
   display: grid;
@@ -830,7 +871,7 @@ ul {
   display: flex;
   flex-direction: column;
   background-color: var(--white);
-  border-top: 1px solid var(--border-light);
+  border-top: 1.5px solid var(--border-solid);
   padding-top: 1.5rem;
 }
 
@@ -889,47 +930,8 @@ ul {
   margin: 0 0 1.5rem 0;
 }
 
-/* UNIFORM 280px PRODUCT BUTTON */
-.btn-prod-chamfer {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 280px;
-  height: 48px;
-  padding: 0 20px;
-  box-sizing: border-box;
-  margin-top: auto;
-  background-color: var(--red);
-  color: var(--white);
-  font-family: var(--font-mono);
-  font-size: 0.75rem;
-  font-weight: 700;
-  letter-spacing: 0.05em;
-  text-decoration: none;
-  text-transform: uppercase;
-  white-space: nowrap;
-  clip-path: polygon(
-    0 0,
-    100% 0,
-    100% calc(100% - 10px),
-    calc(100% - 10px) 100%,
-    0 100%
-  );
-  box-shadow: 0 4px 18px rgba(230, 0, 0, 0.35);
-  transition:
-    background-color 0.2s ease,
-    transform 0.2s ease,
-    box-shadow 0.2s ease;
-}
-
-.btn-prod-chamfer:hover {
-  background-color: var(--red-hover);
-  transform: translateY(-2px);
-  box-shadow: 0 6px 24px rgba(230, 0, 0, 0.55);
-}
-
 /* ==========================================================================
-   8. WHY TEKNIC EUCHNER
+   10. WHY TEKNIC EUCHNER SECTION
    ========================================================================== */
 .section-why {
   background-color: #0f1215;
@@ -1033,7 +1035,7 @@ ul {
 }
 
 /* ==========================================================================
-   9. INDUSTRIES & APPLICATIONS TABLE
+   11. INDUSTRIES & APPLICATIONS TABLE
    ========================================================================== */
 .industries-table {
   border-top: 1px solid #1c2024;
@@ -1047,9 +1049,7 @@ ul {
   padding: 34px 20px;
   border-bottom: 1px solid #d2d7dc;
   position: relative;
-  transition:
-    background-color 0.25s ease,
-    transform 0.25s ease;
+  transition: background-color 0.25s ease, transform 0.25s ease;
 }
 
 .ind-row::after {
@@ -1100,7 +1100,7 @@ ul {
 }
 
 /* ==========================================================================
-   10. MANUFACTURING & SHOWCASE CAROUSEL
+   12. MANUFACTURING SHOWCASE & CAROUSEL
    ========================================================================== */
 .mfg-carousel-frame {
   position: relative;
@@ -1160,7 +1160,7 @@ ul {
 }
 
 /* ==========================================================================
-   11. QUALITY SECTION
+   13. QUALITY SECTION
    ========================================================================== */
 .quality-split-layout {
   display: grid;
@@ -1234,7 +1234,7 @@ ul {
 }
 
 /* ==========================================================================
-   12. FOCUSED CTA & PRE-FOOTER CTA
+   14. FOCUSED CTA & PRE-FOOTER
    ========================================================================== */
 .section-cta-focused {
   position: relative;
@@ -1319,6 +1319,7 @@ ul {
   align-items: flex-start;
   position: relative;
   z-index: 2;
+  gap: 40px;
 }
 
 .footer-cta-heading {
@@ -1339,6 +1340,7 @@ ul {
   color: #a0a6ad;
 }
 
+/* Background Geometric Arcs */
 .footer-bg-arc {
   position: absolute;
   border-radius: 50%;
@@ -1367,35 +1369,8 @@ ul {
   bottom: 40px;
 }
 
-.footer-cta-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  position: relative;
-  z-index: 2;
-  gap: 40px;
-}
-
-.footer-cta-heading {
-  font-size: 44px;
-  font-weight: 700;
-  line-height: 1.15;
-  color: #ffffff;
-  letter-spacing: -0.02em;
-}
-
-.cta-right-box {
-  max-width: 420px;
-}
-
-.cta-sub-copy {
-  font-size: 14.5px;
-  line-height: 1.6;
-  color: #a0a6ad;
-}
-
 /* ==========================================================================
-   SITE FOOTER
+   15. SITE FOOTER
    ========================================================================== */
 .site-footer {
   position: relative;
@@ -1413,7 +1388,6 @@ ul {
   z-index: 2;
 }
 
-/* Vertical Dividing Lines Between Cells */
 .footer-cell {
   padding: 0 35px;
   position: relative;
@@ -1429,15 +1403,9 @@ ul {
   background-color: rgba(255, 255, 255, 0.07);
 }
 
-.cell-brand {
-  padding-left: 0;
-}
+.cell-brand  { padding-left: 0; }
+.cell-social { padding-right: 0; }
 
-.cell-social {
-  padding-right: 0;
-}
-
-/* Typography & Brand */
 .footer-tagline-mono {
   font-family: var(--font-mono);
   font-size: 11.5px;
@@ -1456,7 +1424,7 @@ ul {
 }
 
 .logo-red-bold {
-  color: #e60000;
+  color: var(--red);
   margin-right: 4px;
 }
 
@@ -1489,14 +1457,12 @@ ul {
   font-weight: 700;
   letter-spacing: 0.08em;
   color: #a0a6ad;
-  transition:
-    color 0.2s ease,
-    transform 0.2s ease;
+  transition: color 0.2s ease, transform 0.2s ease;
   display: inline-block;
 }
 
 .footer-nav-list a:hover {
-  color: #e60000;
+  color: var(--red);
   transform: translateX(4px);
 }
 
@@ -1520,7 +1486,6 @@ ul {
   color: #ffffff;
 }
 
-/* Social Buttons */
 .social-icon-group {
   display: flex;
   gap: 10px;
@@ -1542,12 +1507,11 @@ ul {
 }
 
 .social-pill-btn:hover {
-  background-color: #e60000;
+  background-color: var(--red);
   transform: translateY(-3px);
   box-shadow: 0 4px 12px rgba(230, 0, 0, 0.4);
 }
 
-/* Meta Bottom Strip */
 .footer-bottom-meta {
   display: flex;
   justify-content: space-between;
@@ -1572,7 +1536,7 @@ ul {
 }
 
 /* ==========================================================================
-   14. RESPONSIVE BREAKPOINTS
+   16. RESPONSIVE BREAKPOINTS
    ========================================================================== */
 @media (max-width: 1024px) {
   .experience-heading {
