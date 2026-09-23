@@ -1278,7 +1278,6 @@ ul {
   margin-top: 14px;
   margin-bottom: 28px;
 }
-
 /* ==========================================================================
    14. FOCUSED CTA & PRE-FOOTER
    ========================================================================== */
@@ -1456,13 +1455,55 @@ ul {
     text-align: center;
   }
 
+  /* Pre-Footer Section Mobile Fixes */
+  .section-footer-cta {
+    padding: 60px 16px 70px 16px;
+  }
+
   .footer-cta-container {
     flex-direction: column;
-    gap: 28px;
+    align-items: flex-start;
+    gap: 24px;
+    width: 100%;
+  }
+
+  .footer-cta-heading {
+    font-size: clamp(24px, 6vw, 32px);
+    line-height: 1.25;
+    word-break: break-word;
   }
 
   .cta-right-box {
+    width: 100%;
     max-width: 100%;
+  }
+
+  .cta-sub-copy {
+    font-size: 13.5px;
+    line-height: 1.6;
+    margin-bottom: 24px;
+    word-break: break-word;
+    width: 100%;
+  }
+
+  .btn-find-dealer {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box;
+    padding: 0 16px;
+    height: 52px;
+    font-size: 11.5px;
+  }
+
+  /* Hide decorative arcs on small screens to stop sideways scroll overflow */
+  .arc-cta-left,
+  .arc-cta-right,
+  .arc-footer-bottom {
+    display: none;
   }
 }
 
